@@ -25,6 +25,10 @@
 body {
   background-color: #000;
 }
+body.no-scroll {
+  overflow: hidden;
+}
+
 
 html {
   scroll-behavior: smooth;
@@ -75,6 +79,43 @@ header {
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s ease-in-out;
 }
+.mobileParent {
+  position: fixed;
+  height: 100%;
+  width: 400px;
+  padding: 15px 63px;
+  right: 0;
+  color: white;
+  z-index: 9999;
+  background-color: #ffffff1a;
+  backdrop-filter: blur(50px);
+  animation-name: menu;
+  animation-duration: 1s;
+  transition: 0.3s;
+  display: none;
+}
+@keyframes menu {
+  from {
+    transform: translate(100%);
+  }
+  to {
+    transform: translate(0%);
+  }
+}
+
+@keyframes menuClose{
+  from{
+    transform: translate(0%);
+  }
+  to{
+    transform: translate(100%);
+  }
+}
+
+.mobileParent.hide {
+  animation: menuClose 0.5s forwards ease-in;
+}
+
 
 .social-media {
   display: flex;
